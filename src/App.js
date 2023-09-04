@@ -33,9 +33,9 @@ function App() {
   return (
     <div className="App" ref={bgImgRef}>
       <div className='instructions'>
+        <p>Note: Textarea when added will appear on top of each other. This is done to save screen space.</p>
         <p>Click inside textarea to disable dragging and enable resizing</p>
-        <p>Once the <i>Blue Border</i> appears, dragging is disabled. <br></br>Now it can be resized.</p>
-        <p>To enable dragging again, First -> <i>click outside the textarea</i> and the border dissappears.<br></br><br></br>Now either Single click in textarea and then click again (but don't release) <i>OR</i> hover over the border of the textareas, and notice a <i>MOVE CURSOR</i> to drag.</p>
+        <p>To enable dragging again, First -> <i>click outside the textarea</i> and the blue border dissappears.<br></br><br></br>Now either Single click in textarea and then click again (but don't release) <i>OR</i> hover over the border of the textareas, and notice a <i>MOVE CURSOR</i> to drag.</p>
       </div>
       <div className="input-section">
         <input
