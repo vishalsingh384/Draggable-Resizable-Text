@@ -5,6 +5,7 @@ const TextMovable = ({ text, bg}) => {
   // console.log(bg);
   const [inputValue, setInputValue] = useState(text);
   const [textAreaClicked, setTextAreaClicked]=useState(false);
+  const [resizable, setResizable]=useState(false);
 
   const inputRef = useRef(null);
   const inputParentRef=useRef(null);
@@ -20,6 +21,7 @@ const TextMovable = ({ text, bg}) => {
       if(!inputRef.current.contains(e.target)){
         console.log('in');
         setTextAreaClicked(false);
+        setResizable(false);
       }
     }
     document.body.addEventListener('click', handleClickOutsideTextArea);
@@ -29,13 +31,19 @@ const TextMovable = ({ text, bg}) => {
     }
   },[]);
 
+  useEffect(()=>{
+    console.log(inputRef.current.scrollWidth);
+  })
+
   const handleClick=()=>{
     setTextAreaClicked(true);
+    setResizable(true);
   }
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
+
 
   const adjustInputSize = () => {
     if (inputRef.current) {
@@ -56,7 +64,7 @@ const TextMovable = ({ text, bg}) => {
   };
 
   return (
-    <Draggable>
+    <Draggable disabled={resizable}>
       <div
         className="text-box" ref={inputParentRef}
       >
@@ -68,7 +76,8 @@ const TextMovable = ({ text, bg}) => {
           onClick={handleClick}
           rows={1}
           style={{
-           maxWidth: `${maxWidth}px`
+           maxWidth: `${maxWidth}px`,
+           resize: resizable ? 'both' : 'none',
           }}
         />
       </div>
@@ -77,3 +86,4 @@ const TextMovable = ({ text, bg}) => {
 };
 
 export default TextMovable;
+

@@ -9,6 +9,10 @@
   overflow: hidden;
 }
 
+.text-boxes{
+  position: relative;
+}
+
 .input-section{
   margin: 0;
   padding: 5px;
@@ -20,6 +24,7 @@
   width: auto;
   height: auto;
   outline: none;
+  position: absolute;
 }
 
 textarea{
@@ -30,6 +35,7 @@ textarea{
   border: none;
   overflow: hidden;
   margin: 5px;
+  padding: 5px;
   background: transparent;
   font-size: 40px;
   font-weight: 900;
@@ -61,4 +67,24 @@ textarea:hover{
 
 .border{
   border: 2px solid rgb(28, 122, 203);
+}
+
+.instructions{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 150px;
+  right: 5px;
+}
+
+.instructions p{
+  display: inline-block;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.75));
+  color: white;
+  width: auto;
+  padding: 10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: 13px;
+  text-transform:uppercase;
 }
